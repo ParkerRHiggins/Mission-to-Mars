@@ -60,14 +60,11 @@ def featured_image(browser):
     # Visit URL
     url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
     browser.visit(url)
-
-    # Optional delay for loading the page
-    browser.is_element_present_by_css('div.list_text', wait_time=10)
     
     # Find and click the full image button
     full_image_elem = browser.find_by_tag('button')[1]
     full_image_elem.click()
-
+    
     # Parse the resulting html with soup
     html = browser.html
     img_soup = soup(html, 'html.parser')
